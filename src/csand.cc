@@ -1,7 +1,7 @@
 #include "csand.hh"
 
 void HandleTools(Vector2 MousePos, int cell[GRID_WIDTH][GRID_HEIGHT]) {
-  if (!IsCursorOnScreen) {
+  if (!IsCursorOnScreen()) {
     return;
   }
 
@@ -10,11 +10,27 @@ void HandleTools(Vector2 MousePos, int cell[GRID_WIDTH][GRID_HEIGHT]) {
   } else if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
     tool_UseErase((int)MousePos.x / GRID_CELL_PX_SIZE, (int)MousePos.y / GRID_CELL_PX_SIZE, cell);
   }
+}
 
+void HandleMiscInputs() {
   if (IsKeyPressed(KEY_ONE)) {
     elem_CurrentElem = ELEM_SAND;
-  } else if (IsKeyPressed(KEY_ONE)) {
+  } else if (IsKeyPressed(KEY_TWO)) {
     elem_CurrentElem = ELEM_WALL;
+  } else if (IsKeyPressed(KEY_THREE)) {
+    elem_CurrentElem = ELEM_WATER;
+  } else if (IsKeyPressed(KEY_FOUR)) {
+    elem_CurrentElem = ELEM_ACID;
+  }
+}
+
+void HandleCommandInputs(int cell[GRID_WIDTH][GRID_HEIGHT]) {
+  if (IsKeyPressed(KEY_R)) {
+    for (int x = 0; x < GRID_WIDTH; x++) {
+      for (int y = 0; y < GRID_HEIGHT; y++) {
+        cell[x][y] = ELEM_NONE;
+      }
+    }
   }
 }
 
@@ -26,6 +42,8 @@ int main() {
   SetWindowIcon(logo);
   UnloadImage(logo);
 
+  SetExitKey(KEY_NULL);
+
   grid_Grid *grid = new grid_Grid;
   grid->setup();
 
@@ -35,13 +53,15 @@ int main() {
 
     BeginDrawing();
       grid->draw();
+      std::string message = std::to_string(GetFPS()) + " FPS";
+      DrawText(message.c_str(), 5, 5, 5, WHITE);
     EndDrawing();
 
     // input
     Vector2 MousePos = GetMousePosition();
     HandleTools(MousePos, grid->cell);
-
-    std::cout << GetFPS() << " t/s" << std::endl;
+    HandleCommandInputs(grid->cell);
+    HandleMiscInputs();
   }
 
   delete grid; 

@@ -33,8 +33,15 @@ typedef struct grid_Grid {
         return;
       case(ELEM_SAND):
         elem_SandPhysics(cell, x, y);
+        break;
       case(ELEM_WALL):
         return;
+      case(ELEM_WATER):
+        elem_WaterPhysics(cell, x, y);
+        break;
+      case(ELEM_ACID):
+        elem_AcidPhysics(cell, x, y);
+        break;
     }
   }
 
@@ -54,6 +61,10 @@ typedef struct grid_Grid {
         return ELEM_SAND_COLOR;
       case(ELEM_WALL):
         return ELEM_WALL_COLOR;
+      case(ELEM_WATER):
+        return ELEM_WATER_COLOR;
+      case(ELEM_ACID):
+        return ELEM_ACID_COLOR;
     }
   };
 } grid_Grid;
