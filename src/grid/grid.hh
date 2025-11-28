@@ -4,7 +4,7 @@
 
 #define GRID_WIDTH 620
 #define GRID_HEIGHT 360
-#define GRID_CELL_PX_SIZE 2
+#define GRID_CELL_PX_SIZE 3
 
 typedef struct grid_Grid {
   int cell[GRID_WIDTH][GRID_HEIGHT]; // The grid itself. Represented using `cell[x][y]` for simplicity.

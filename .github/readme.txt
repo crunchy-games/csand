@@ -11,3 +11,8 @@ adds them.
 -------------------------------------
 Dominic Kolp - Lead Programmer
 cjk          - Playtester
+-------------------------------------
+Check out the official Crunchy Games
+Discord server! It has news on the
+game's development, and releases.
+https://discord.gg/9x2fgGxaV7
