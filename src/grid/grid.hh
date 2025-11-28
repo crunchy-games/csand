@@ -1,6 +1,7 @@
 #pragma once
 #include "../csand.hh"
 #include "../elem/elem.hh"
+#include "../visual/visual.hh"
 
 #define GRID_WIDTH 620
 #define GRID_HEIGHT 360
@@ -42,6 +43,11 @@ typedef struct grid_Grid {
       case(ELEM_ACID):
         elem_AcidPhysics(cell, x, y);
         break;
+      case(ELEM_WOOD):
+        return;
+      case(ELEM_FIRE):
+        elem_FirePhysics(cell, x, y);
+        break;
     }
   }
 
@@ -65,6 +71,10 @@ typedef struct grid_Grid {
         return ELEM_WATER_COLOR;
       case(ELEM_ACID):
         return ELEM_ACID_COLOR;
+      case(ELEM_WOOD):
+        return BROWN;
+      case(ELEM_FIRE):
+        return GetRandomColor(YELLOW, RED);
     }
   };
 } grid_Grid;

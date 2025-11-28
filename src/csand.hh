@@ -7,3 +7,4 @@
 
 #include "grid/grid.hh"
 #include "tools/tool.hh"
+#include "visual/visual.hh"

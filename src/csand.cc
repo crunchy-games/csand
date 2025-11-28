@@ -19,7 +19,7 @@ void HandleTools(Vector2 MousePos, int cell[GRID_WIDTH][GRID_HEIGHT]) {
     tool_CurrentTool = TOOL_SPRAY;
   }
 }
-
+// primarily used for switching between elements
 void HandleMiscInputs() {
   if (IsKeyPressed(KEY_ONE)) {
     elem_CurrentElem = ELEM_SAND;
@@ -29,6 +29,10 @@ void HandleMiscInputs() {
     elem_CurrentElem = ELEM_WATER;
   } else if (IsKeyPressed(KEY_FOUR)) {
     elem_CurrentElem = ELEM_ACID;
+  } else if (IsKeyPressed(KEY_FIVE)) {
+    elem_CurrentElem = ELEM_WOOD;
+  } else if (IsKeyPressed(KEY_SIX)) {
+    elem_CurrentElem = ELEM_FIRE; 
   }
 }
 

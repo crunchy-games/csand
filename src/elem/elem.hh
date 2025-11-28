@@ -6,6 +6,8 @@
 #define ELEM_WALL  2   // The id for `wall`
 #define ELEM_WATER 3   // The id for `water`, has similar properties to `sand`
 #define ELEM_ACID  4   // The id for `acid`, an element that goes through other elements
+#define ELEM_WOOD  5   // The id for `wood`, an element that is flammable
+#define ELEM_FIRE  6   // The id for `fire`, an element that eats at flammable elements
 
 #define ELEM_SAND_COLOR  YELLOW
 #define ELEM_NONE_COLOR  BLACK
@@ -110,5 +112,28 @@ void elem_AcidPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
   } else if (cell[x + 1][y] != ELEM_ACID) {
     cell[x + 1][y] = cell[x][y];
     cell[x][y] = ELEM_NONE;
+  }
+}
+
+void elem_FirePhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
+  float death_roll = (float)GetRandomValue(0, 100) / 100.0f;
+
+  // find wood
+  int mod_x = GetRandomValue(-10, 10);
+  int mod_y = GetRandomValue(-10, 10);
+  if ((x + mod_x) >= GRID_WIDTH) {
+    return;
+  }
+  if (cell[x + mod_x][y + mod_y] == ELEM_NONE) {
+    cell[x + mod_x][y + mod_y] = ELEM_FIRE;
+    cell[x][y] = ELEM_NONE;
+  // burn wood
+  } else if (cell[x + mod_x][y + mod_y] == ELEM_WOOD) {
+    cell[x + mod_x][y + mod_y] = ELEM_FIRE;
+  }
+  // burn out
+  if (death_roll < 0.03) {
+    cell[x + mod_x][y + mod_y] = ELEM_NONE;
+    return;
   }
 }
