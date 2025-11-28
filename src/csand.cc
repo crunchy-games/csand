@@ -45,6 +45,7 @@ void HandleCommandInputs(int cell[GRID_WIDTH][GRID_HEIGHT]) {
 int main() {
   InitWindow(1240, 720, "csand");
   SetTargetFPS(100); // ticks per second
+  ToggleFullscreen();
 
   Image logo = LoadImage("assets/logo.png");
   SetWindowIcon(logo);

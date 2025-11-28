@@ -23,10 +23,18 @@ int elem_CurrentElem = ELEM_SAND;
 
 /* The function used by dust-like elements, and of course `sand` */
 void elem_SandPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
-  // ensure that the sand doesn't fall off screen
   if ((y + 1) == GRID_HEIGHT) {
+    cell[x][y] = ELEM_NONE;
     return;
   }
+  if ((x + 1) == GRID_WIDTH) {
+    cell[x][y] = ELEM_NONE;
+    return;
+  }
+  if (x > GRID_WIDTH) {
+    return;
+  }
+
   // main logic
   if (cell[x][y + 1] == ELEM_NONE) {
     cell[x][y + 1] = cell[x][y]; // place element below
@@ -41,10 +49,15 @@ void elem_SandPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
 }
 
 void elem_WaterPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
-  // ensure that the water doesn't fall off screen
   if ((y + 1) == GRID_HEIGHT) {
+    cell[x][y] = ELEM_NONE;
     return;
   }
+  if (x == GRID_WIDTH) {
+    cell[x][y] = ELEM_NONE;
+    return;
+  }
+
   // main logic
   if (cell[x][y + 1] == ELEM_NONE) {
     cell[x][y + 1] = cell[x][y]; // place element below
@@ -60,6 +73,9 @@ void elem_WaterPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
   // 'disperse' logic
   if (cell[x - 1][y] == ELEM_NONE && cell[x + 1][y] == ELEM_NONE) {
     int mod = GetRandomValue(-1 * ELEM_WATER_DISPERSITY, ELEM_WATER_DISPERSITY);
+    if ((x + mod) > GRID_WIDTH) {
+      return;
+    }
     if (cell[x + mod][y] == ELEM_NONE) {
       cell[x + mod][y] = cell[x][y];
       cell[x][y] = ELEM_NONE;
@@ -81,10 +97,15 @@ void elem_AcidPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
     return;
   }
 
-  // ensure that the water doesn't fall off screen
   if ((y + 1) == GRID_HEIGHT) {
+    cell[x][y] = ELEM_NONE;
     return;
   }
+  if (x == GRID_WIDTH) {
+    cell[x][y] = ELEM_NONE;
+    return;
+  }
+
   // main logic
   if (cell[x][y + 1] != ELEM_ACID) {
     cell[x][y + 1] = cell[x][y]; // place element below
@@ -100,6 +121,9 @@ void elem_AcidPhysics(int cell[GRID_WIDTH][GRID_HEIGHT], int x, int y) {
   // 'disperse' logic
   if (cell[x - 1][y] != ELEM_ACID && cell[x + 1][y] != ELEM_ACID) {
     int mod = GetRandomValue(-1 * ELEM_ACID_DISPERSITY, ELEM_ACID_DISPERSITY);
+    if ((x + mod) > GRID_WIDTH) {
+      return;
+    }
     if (cell[x + mod][y] != ELEM_ACID) {
       cell[x + mod][y] = cell[x][y];
       cell[x][y] = ELEM_NONE;
