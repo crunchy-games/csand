@@ -19,6 +19,15 @@ void HandleTools(Vector2 MousePos, int cell[GRID_WIDTH][GRID_HEIGHT]) {
     tool_CurrentTool = TOOL_SPRAY;
   }
 }
+
+void HandleSaveInputs(int grid[GRID_WIDTH][GRID_HEIGHT]) {
+  if (IsKeyPressed(KEY_F5)) {
+    save_SaveGame("main", grid);
+  } else if (IsKeyPressed(KEY_F6)) {
+    load_LoadGame("main", grid);
+  }
+}
+
 // primarily used for switching between elements
 void HandleMiscInputs() {
   if (IsKeyPressed(KEY_ONE)) {
@@ -59,12 +68,13 @@ int main() {
   grid_Grid *grid = new grid_Grid;
   grid->setup();
 
-  LoadGame("example");
-
   while (WindowShouldClose() == false) {
-    ClearBackground(BLACK);
+    // physics
     grid->update();
 
+    // drawing
+    ClearBackground(BLACK);
+    
     BeginDrawing();
       grid->draw();
       std::string message = std::to_string(GetFPS()) + " FPS";
@@ -75,6 +85,7 @@ int main() {
     Vector2 MousePos = GetMousePosition();
     HandleTools(MousePos, grid->cell);
     HandleCommandInputs(grid->cell);
+    HandleSaveInputs(grid->cell);
     HandleMiscInputs();
   }
 

@@ -7,7 +7,7 @@
 using namespace std;
 
 // save a `.save` file with specific parameters
-void SaveGame(string name, int grid[GRID_WIDTH][GRID_HEIGHT]) {
+void save_SaveGame(string name, int grid[GRID_WIDTH][GRID_HEIGHT]) {
   string file_name = "assets/data/saves/" + name;
   ofstream file(file_name);
 
