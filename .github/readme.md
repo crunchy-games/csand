@@ -3,6 +3,7 @@ A simple, grid-based sand
 simulation.
 
 pronounced "sand"
+
 _NOT_ made in C, made in C++ using
 the raylib framework.
 
@@ -13,8 +14,8 @@ file in the `cmake` directory.
 
 ---
 
-Dominic Kolp - Lead Programmer
-cjk          - Playtester
+* Dominic Kolp - Lead Programmer
+* cjk          - Playtester
 
 --- 
 
@@ -23,3 +24,8 @@ Discord server! It has news on the
 game's development, and releases.
 
 https://discord.gg/9x2fgGxaV7
+
+Check out my YouTube channel! I
+post there once in a while (:
+
+https://youtube.com/@stupid-dev
