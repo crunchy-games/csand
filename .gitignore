@@ -6,6 +6,9 @@ makefile
 cmakecache.txt
 *.cmake
 compile_commands.json
+*.sln
+*.slnx
+*.build
 
 # ide-ignores
 # same rule above applies here

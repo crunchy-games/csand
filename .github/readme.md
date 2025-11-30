@@ -1,4 +1,7 @@
 # CSAND
+![Stars](https://img.shields.io/github/stars/stupidlilgoober/csand?style=social)
+![Discord](img.shields.io/discord/1443999987305418846?logo=discord&logoColor=#FFFFFF&label=Online%20Members&color=5865F2)
+
 A simple, grid-based sand
 simulation.
 
@@ -16,10 +19,4 @@ file in the `cmake` directory.
 Dominic Kolp - Lead Programmer
 cjk          - Playtester
 
---- 
-
-Check out the official Crunchy Games
-Discord server! It has news on the
-game's development, and releases.
-
-https://discord.gg/9x2fgGxaV7
+💬 [Discord](https://discord.gg/9x2fgGxaV7) 📫 [Email](https://stupidlilgoober@gmail.com)

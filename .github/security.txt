@@ -1,0 +1,20 @@
+REPORTING A SECURITY VULNERABILITY
+
+* What classifies as a security vulnerability? *
+Memory leaks, memory errors, and other exploitable
+bugs are considered security vulnerabilities (which
+from now on will be called 'security leaks').
+
+* Common security leaks *
+- Exploits in the game's code
+- Injection
+- Memory leaks
+- Segmentation faults
+- Memory corruption
+
+* Where should I contact someone when finding a security leak? *
+_DO NOT_ make a public bug report about it. Email stupidlilgoober@gmail.com
+or DM me on Discord (@stupidlilgoober).
+
+Making a public report might give malicious users the tools
+they need to exploit the problem.

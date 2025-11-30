@@ -28,6 +28,7 @@ endif()
 add_executable(${PROJECT} "../src/csand.cc")
 
 target_link_libraries(${PROJECT} PRIVATE raylib)
+
 if (MSVC)
   target_compile_options(${PROJECT} PRIVATE /W4)
 else()
