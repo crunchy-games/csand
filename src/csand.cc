@@ -1,10 +1,6 @@
 #include "csand.hh"
 
 void HandleTools(Vector2 MousePos, int cell[GRID_WIDTH][GRID_HEIGHT]) {
-  if (!IsCursorOnScreen()) {
-    return;
-  }
-
   if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
     tool_UseTool((int)MousePos.x / GRID_CELL_PX_SIZE, (int)MousePos.y / GRID_CELL_PX_SIZE, cell);
   } else if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
