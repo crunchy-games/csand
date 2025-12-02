@@ -18,3 +18,7 @@ or DM me on Discord (@stupidlilgoober).
 
 Making a public report might give malicious users the tools
 they need to exploit the problem.
+
+*****************************************************************************
+
+Dominic Kolp

@@ -9,10 +9,8 @@ pronounced "sand"
 _NOT_ made in C, made in C++ using
 the raylib framework.
 
-Some dependencies are included. The
-ones that aren't included are 
-automatically added by the cmakelists
-file in the `cmake` directory.
+Dependencies are automatically added
+by the `cmake/cmakelists.txt` file.
 
 ---
 
