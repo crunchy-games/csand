@@ -19,12 +19,6 @@ file in the `cmake` directory.
 
 --- 
 
-Check out the official Crunchy Games
-Discord server! It has news on the
-game's development, and releases.
-
-https://discord.gg/9x2fgGxaV7
-
 Check out my YouTube channel! I
 post there once in a while (:
 
